@@ -1,3 +1,4 @@
+const puppeteer = require("puppeteer");
 const { generateText, checkAndGenerate } = require("./util");
 // import { generateText } from "./util"; // doesn't handle ES6 import in testing
 
