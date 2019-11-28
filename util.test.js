@@ -19,11 +19,11 @@ test("should generate a valid text output", () => {
   expect(text).toBe("Max (29 years old)");
 });
 
-test("should click around", async () => {
+test("should create an element with text and correct class", async () => {
   const browser = await puppeteer.launch({
-    headless: false,
-    slowMo: 80,
-    args: ["--window-size=1920,1080"]
+    headless: false, // if true
+    slowMo: 80, // commented
+    args: ["--window-size=1920,1080"] // and commented, doesn't open the chromium browser and accelerate the tests
   });
   const page = await browser.newPage();
   await page.goto("http://127.0.0.1:5500/index.html");
@@ -34,4 +34,4 @@ test("should click around", async () => {
   await page.click("#btnAddUser");
   const finalText = await page.$eval(".user-item", el => el.textContent);
   expect(finalText).toBe("Gautier (28 years old)");
-}, 10000);
+}, 10000); // the second argument is the time chromium accords to us for testing
